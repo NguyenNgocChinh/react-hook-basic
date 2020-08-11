@@ -1,0 +1,12 @@
+.color-box {
+    $dai: 200px;
+    position: relative;
+    flex-direction: column;
+    width: $dai;
+    height: $dai;
+
+    p {
+        position: absolute;
+        transform: translate(50%, 50%);
+    }
+}
