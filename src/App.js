@@ -3,6 +3,7 @@ import './App.scss';
 import Pagination from './components/Pagination';
 import PostList from './components/PostList';
 import querystring from 'query-string';
+import SearchForm from './components/SearchForm';
 
 function App() {
 
@@ -36,10 +37,17 @@ function App() {
       _page: newPage
     })
   }
-
+  function handleSearchChange(formValues) {
+    setFilters({
+      ...filters,
+      _page: 1,
+      title_like: formValues
+    });
+  }
   return (
     <div className="app">
       <h1>React Hook - useEffect - Call API</h1>
+      <SearchForm onFilterChange={handleSearchChange} />
       <PostList posts={postsList} />
       <Pagination pagination={pagination} onPageChange={handlePageChange} />
     </div>
